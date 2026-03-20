@@ -1,62 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Helvetica, sans-serif, sans-serif;
   margin: 0;
-  padding: 20px;
+  font-family: Arial, sans-serif;
   background: #f4f5f7;
+  color: #172b4d;
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
+  margin: 0;
+  padding: 24px 16px;
+  font-size: 2rem;
 }
 
 .board {
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  outline: red solid 1px;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
 .column {
-  background: #e2e4e6;
-  padding: 15px;
-  border-radius: 8px;
-  width: 300px;
-  outline: red solid 1px;
+  background: #ebecf0;
+  width: 320px;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.column h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
 }
 
 .task-list {
-  min-height: 100px;
-  margin-bottom: 10px;
-  outline: red solid 1px;
-}
-
-.add-task {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  background: #5aac44;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: red solid 1px;
+  min-height: 120px;
+  margin-bottom: 12px;
 }
 
 .task {
   background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
   cursor: grab;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.task span {
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+.add-task {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #0c66e4;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.add-task:hover {
+  background: #0055cc;
 }
 
 .delete-btn {
   background: transparent;
   border: none;
-  color: red;
+  color: #c9372c;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(201, 55, 44, 0.1);
+  transform: scale(1.08);
+}
+
+@media (max-width: 1024px) {
+  .board {
+    align-items: stretch;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 500px;
+  }
 }
